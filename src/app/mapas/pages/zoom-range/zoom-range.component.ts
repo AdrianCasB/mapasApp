@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import { PlacesService } from '../../services/places.service';
 
 @Component({
   selector: 'app-zoom-range',
@@ -30,10 +31,12 @@ export class ZoomRangeComponent implements AfterViewInit, OnDestroy {
     this.mapa.off('move', ()=>{});
   }
 
+  constructor( private placeService: PlacesService){}
+
   @ViewChild('mapa') divMapa!: ElementRef;
   mapa!: mapboxgl.Map;
-  zoomLevel: number = 17;
-  center: [number,number] = [-0.9962419013163848, 37.60883925849077];
+  zoomLevel: number = 16;
+  center: [number,number] = this.placeService.userLocation || [-0.9962419013163848, 37.60883925849077];
 
   ngAfterViewInit(): void {
 

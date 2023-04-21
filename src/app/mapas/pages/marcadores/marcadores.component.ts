@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import { PlacesService } from '../../services/places.service';
 
 interface Marcador {
   color: string;
@@ -37,9 +38,11 @@ export class MarcadoresComponent implements AfterViewInit {
   @ViewChild('mapa') divMapa!: ElementRef;
   mapa!: mapboxgl.Map;
   zoomLevel: number = 15;
-  center: [number, number] = [-0.9962419013163848, 37.60883925849077];
+  center: [number, number] = this.placeService.userLocation || [-0.9962419013163848, 37.60883925849077];
   //Array de marcadores
   marcadores: Marcador[] = [];
+
+  constructor( private placeService: PlacesService){}
 
   ngAfterViewInit(): void {
 

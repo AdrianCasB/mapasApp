@@ -18,19 +18,19 @@ export class MenuComponent {
 
   menuItems : MenuItem[] = [
     {
-      ruta: '/mapas/fullscreen',
+      ruta: '/fullscreen',
       nombre:'FullScreen'
     },
     {
-      ruta: '/mapas/marcadores',
+      ruta: '/marcadores',
       nombre:'Marcadores'
     },
     {
-      ruta: '/mapas/zoomrange',
+      ruta: '/zoomrange',
       nombre:'Zoom Range'
     },
     {
-      ruta: '/mapas/propiedades',
+      ruta: '/propiedades',
       nombre:'Propiedades'
     }
     
